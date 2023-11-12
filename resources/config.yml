@@ -1,0 +1,55 @@
+#how often the scoreboard will be updated in ticks, 1 second = 20 ticks
+refresh_rate: 20
+#scoreboard priority: higher will show first
+scoreboards:
+  default:
+    title: '&6&lPrime&b&lMC'
+    priority: 1
+    lines:
+      - '&7&m------------------------'
+      - '&6&l%player%&b&lMC'
+      - '&7&m------------------------'
+      - '&7Online: &a%online%'
+      - '&7Max: &a%max%'
+      - '&7&m------------------------'
+      - '&7Website: &bprime-mc.net'
+      - '&7Store: &bstore.prime-mc.net'
+      - '&7&m------------------------'
+  scoreboard_1:
+    title: '&6&lPrime&b&lMC'
+    world: "lobby"
+    priority: 2
+    lines:
+      - '&7&m------------------------'
+      - '&6&lPrime&b&lMC'
+      - '&7&m------------------------'
+      - '&7Online: &a%online%'
+      - '&7Max: &a%max%'
+      - '&7&m------------------------'
+      - '&7Website: &bprime-mc.net'
+      - '&7Store: &bstore.prime-mc.net'
+      - '&7&m------------------------'
+  #scoreboard can have both world and permission conditions or
+  #just one of them
+  scoreboard_2:
+    title: '&6&lPrime&b&lMC'
+    world: "world_wild"
+    priority: 3
+    permission: "prime.scoreboard_2"
+    lines:
+      - '&7&m------------------------'
+      - '&6&lPrime&b&lMC'
+      - '&7&m------------------------'
+      - '&7Online: &a%online%'
+      - '&7Max: &a%max%'
+      - '&7&m------------------------'
+      - '&7Website: &bprime-mc.net'
+      - '&7Store: &bstore.prime-mc.net'
+      - '&7&m------------------------'
+animations:
+  websitelinks:
+    lines:
+      - '1'
+      - '2'
+      - '3'
+      - '4'

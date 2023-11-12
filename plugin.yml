@@ -1,0 +1,17 @@
+name: PrimeScoreboard
+main: nasiridrishi\primescoreboard\PrimeScoreboard
+src-namespace-prefix: nasiridrishi\primescoreboard
+version: 0.0.1
+api: [5.0.0]
+author: nasiridrishi
+
+commands:
+  sbreload:
+    description: "Scoreboard reload command"
+    usage: "/sbreload"
+    permission: "prime.scoreboard"
+    aliases: ["sbreload"]
+permissions:
+  prime.scoreboard:
+    description: "Scoreboard reload command"
+    default: op
