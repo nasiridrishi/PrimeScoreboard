@@ -3,6 +3,7 @@
 namespace nasiridrishi\primescoreboard;
 
 use InvalidArgumentException;
+use nasiridrishi\primescoreboard\animation\AnimationManager;
 use nasiridrishi\primescoreboard\PrimeScoreboard;
 use pocketmine\network\mcpe\protocol\RemoveObjectivePacket;
 use pocketmine\network\mcpe\protocol\SetDisplayObjectivePacket;
@@ -319,16 +320,7 @@ class Scoreboard {
 
     private function parse(string $message): string{
         //check for string {animationName}
-        if(preg_match_all("/\{([^}]+)\}/", $message, $matches)){
-            foreach($matches[1] as $match){
-                $animation = PrimeScoreboard::getInstance()->getAnimationManager()->getAnimation($match);
-                if($animation !== null){
-                    $message = str_replace("{" . $match . "}", $animation->getNext(), $message);
-                }else{
-                    PrimeScoreboard::getInstance()->getLogger()->warning("Could not find animation with name " . $match);
-                }
-            }
-        }
+        $message = AnimationManager::getInstance()->setAnimations($message);
         $message = str_replace("%player%", $this->owner->getName(), $message);
         if(PrimeScoreboard::getInstance() !== null){
             $message = PrimeScoreboard::getInstance()->getPlaceHolderHook()->setPlaceHolders($message, $this->owner);

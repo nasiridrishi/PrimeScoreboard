@@ -4,7 +4,8 @@ src-namespace-prefix: nasiridrishi\primescoreboard
 version: 0.0.1
 api: [5.0.0]
 author: nasiridrishi
-
+softdepend:
+  - "PrimePlaceHolder"
 commands:
   sbreload:
     description: "Scoreboard reload command"

@@ -30,11 +30,18 @@ class AnimationManager {
         PrimeScoreboard::getInstance()->getLogger()->info("Registered animation with name $name");
     }
 
-    /**
-     * @param array $animations
-     */
-    public function setAnimations(array $animations): void {
-        $this->animations = $animations;
+    public function setAnimations(string $c): string {
+        if(preg_match_all("/\{([^}]+)\}/", $c, $matches)){
+            foreach($matches[1] as $match){
+                $animation = $this->getAnimation($match);
+                if($animation !== null){
+                    $c = str_replace("{" . $match . "}", $animation->getNext(), $c);
+                }else{
+                    PrimeScoreboard::getInstance()->getLogger()->warning("Could not find animation with name " . $match);
+                }
+            }
+        }
+        return $c;
     }
 
     public function getAnimation(string $name): ?Animation{
