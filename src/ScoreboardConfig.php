@@ -40,7 +40,6 @@ class ScoreboardConfig {
         $scoreboard = new Scoreboard($player, $this->title, $this->title, $this);
         $entry = 0;
         foreach($this->lines as $line) {
-            PrimeScoreboard::getInstance()->getLogger()->info($line);
             $scoreboard->setEntry($entry, $line);
             $entry++;
         }
